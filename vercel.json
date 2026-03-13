@@ -1,5 +1,4 @@
 {
-  "regions": ["sin1", "bom1"],
   "headers": [
     {
       "source": "/(.*\\.(js|css|woff2|png|jpg|webp|svg|ico|glb|gltf))",
