@@ -1,0 +1,14 @@
+{
+  "regions": ["sin1", "bom1"],
+  "headers": [
+    {
+      "source": "/(.*\\.(js|css|woff2|png|jpg|webp|svg|ico|glb|gltf))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+// This is your Prisma schema file for Zenvyra Digital
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  service   String?
+  message   String?
+  source    String?  @default("website")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("leads")
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  clientName  String
+  service     String
+  platform    String?
+  metrics     Json?
+  description String?
+  featured    Boolean   @default(false)
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@map("projects")
+}
+
+model Testimonial {
+  id         String  @id @default(cuid())
+  clientName String
+  company    String?
+  message    String
+  rating     Int?    @default(5)
+  platform   String?
+  featured   Boolean @default(false)
+
+  @@map("testimonials")
+}
